@@ -1,5 +1,10 @@
 package br.ufg.inf.inventorycontrolActivity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import br.ufg.inf.inventorycontrolModel.*;
+
 import com.example.inventorycontrol.R;
 
 import android.app.Activity;
@@ -9,31 +14,58 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 
 public class CadastroActivity extends Activity {
-	Spinner unidadeDeMedida;
-	@Override
+	private Spinner unidadeDeMedida;
+	private ArrayAdapter<UnidadeDeMedida> mAdapater;
+	private List <UnidadeDeMedida> mItens;
+	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_cadastro);
-		unidadeDeMedida = (Spinner) findViewById(R.id.spUnidadeDeMeida);
-		ArrayAdapter<CharSequence> ar = ArrayAdapter.createFromResource(this, R.array.UnidadedeMedida, android.R.layout.simple_list_item_1);
-		ar.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-		unidadeDeMedida.setAdapter(ar);
-
+		mItens=new ArrayList<UnidadeDeMedida>();
+		populandoListaDeUnidadeDeMedidas();
+		mAdapater = new ArrayAdapter<UnidadeDeMedida>(this, R.layout.activity_spinner, mItens);
+		unidadeDeMedida= (Spinner) findViewById(R.id.spUnidadeDeMeida);
+		mAdapater.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+		unidadeDeMedida.setAdapter(mAdapater);
+	}
+	
+	public void populandoListaDeUnidadeDeMedidas(){
+		UnidadeDeMedida kg = new UnidadeDeMedida(1, "KG");
+		mItens.add(kg);
+		UnidadeDeMedida g = new UnidadeDeMedida(2, "g");
+		mItens.add(g);
+		UnidadeDeMedida l = new UnidadeDeMedida(3, "L");
+		mItens.add(l);
+		UnidadeDeMedida ml = new UnidadeDeMedida(4, "mL");
+		mItens.add(ml);
+		UnidadeDeMedida va = new UnidadeDeMedida(5, "Valor Absoluto");
+		mItens.add(va);
+		
 	}
 	
 	public void incluir (View view){
-		/*
-		 * Implementar o metodo que criar o objeto produto
-		 * e armazena na lista.
-		 */
+		EditText nomeEt=(EditText) findViewById(R.id.etNome);
+		EditText fabricanteEt=(EditText) findViewById(R.id.etFabricante);
+		EditText quantidadeEt= (EditText) findViewById(R.id.etQuantidade);
+		
+		String nome=nomeEt.getText().toString();
+		String fabricante=fabricanteEt.getText().toString();
+		String unidadeDeMedidaIncluir=unidadeDeMedida.getSelectedItem().toString();
+		String quantidade=quantidadeEt.getText().toString();
+		
+		Produto novoproduto;
+		novoproduto=new Produto(nome, fabricante, unidadeDeMedidaIncluir,Integer.parseInt(quantidade));
+		
 		AlertDialog ad = new AlertDialog.Builder(this).create();
-		ad.setTitle("teste");
-		ad.setMessage("teste");
+		ad.setTitle("Cadastro de Produto");
+		ad.setMessage("Produto "+novoproduto.getNome()+" incluido com sucesso");
 		ad.show();
+		
 	}
 
 	@Override

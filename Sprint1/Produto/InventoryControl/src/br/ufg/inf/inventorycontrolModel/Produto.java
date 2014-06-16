@@ -1,8 +1,12 @@
 package br.ufg.inf.inventorycontrolModel;
 
+
+
 public class Produto {
 String nome, fabricante, unidadeDeMedida;
-int quantidade;
+int quantidade, id;
+
+
 
 
 public Produto(String nome, String fabricante, String unidadeDeMedida,
@@ -13,6 +17,7 @@ public Produto(String nome, String fabricante, String unidadeDeMedida,
 	this.unidadeDeMedida = unidadeDeMedida;
 	this.quantidade = quantidade;
 }
+
 
 public String getNome() {
 	return nome;
@@ -39,5 +44,12 @@ public void setQuantidade(int quantidade) {
 	this.quantidade = quantidade;
 }
 
+public int getId() {
+	return id;
+}
+
+public void setId(int id) {
+	this.id = id;
+}
 
 }

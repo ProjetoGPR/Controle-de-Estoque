@@ -12,15 +12,7 @@
     <string name="quantidade">QUANTIDADE</string>
     <string name="incluir">INCLUIR</string>
 
-    <!-- Spinner da activty cadastro -->
-    <string-array name="UnidadedeMedida">
-        <item>Kg</item>
-        <item>g</item>
-        <item>L</item>
-        <item>ml</item>
-        <item>valor absoluto</item>
-    </string-array>
-
+   
     <!-- activity listar -->
 
  
