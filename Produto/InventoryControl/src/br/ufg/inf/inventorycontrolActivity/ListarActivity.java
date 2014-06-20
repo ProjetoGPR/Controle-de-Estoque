@@ -2,6 +2,7 @@ package br.ufg.inf.inventorycontrolActivity;
 
 import java.util.ArrayList;
 
+import br.ufg.inf.inventorycontrolControle.ControleProdutos;
 import br.ufg.inf.inventorycontrolModel.Produto;
 
 import com.example.inventorycontrol.R;
@@ -21,12 +22,12 @@ public class ListarActivity extends Activity{
 		/*
 		 * PEnsar em uma maneira de listar apenas o atributo nome do produto
 		 * pois não tem como listar o prosuto em si.
-		 */
-		ArrayList<Produto> produtosCadastrados=new ArrayList<Produto>();
+		  */
+		ArrayList<Produto> produtosCadastrados= ControleProdutos.produtosCadastrados;
 		ArrayAdapter<Produto> adapter = new ArrayAdapter<Produto>(this,android.R.layout.simple_expandable_list_item_1,produtosCadastrados);
 		ListView lv = (ListView) findViewById(R.id.lListView);
 		lv.setAdapter(adapter);
-		
+		 
 	}
 	
 	@Override

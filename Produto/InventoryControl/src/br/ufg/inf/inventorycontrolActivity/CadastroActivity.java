@@ -3,6 +3,7 @@ package br.ufg.inf.inventorycontrolActivity;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.ufg.inf.inventorycontrolControle.ControleProdutos;
 import br.ufg.inf.inventorycontrolModel.*;
 
 import com.example.inventorycontrol.R;
@@ -52,18 +53,14 @@ public class CadastroActivity extends Activity {
 		EditText nomeEt=(EditText) findViewById(R.id.etNome);
 		EditText fabricanteEt=(EditText) findViewById(R.id.etFabricante);
 		EditText quantidadeEt= (EditText) findViewById(R.id.etQuantidade);
-		
-		String nome=nomeEt.getText().toString();
-		String fabricante=fabricanteEt.getText().toString();
-		String unidadeDeMedidaIncluir=unidadeDeMedida.getSelectedItem().toString();
-		String quantidade=quantidadeEt.getText().toString();
-		
-		Produto novoproduto;
-		novoproduto=new Produto(nome, fabricante, unidadeDeMedidaIncluir,Integer.parseInt(quantidade));
+	
+		ControleProdutos controleCCA = new ControleProdutos();	
+		controleCCA.cadastraProduto(nomeEt.getText().toString(), fabricanteEt.getText().toString(),
+				unidadeDeMedida.getSelectedItem().toString(), Integer.parseInt(quantidadeEt.getText().toString()));
 		
 		AlertDialog ad = new AlertDialog.Builder(this).create();
 		ad.setTitle("Cadastro de Produto");
-		ad.setMessage("Produto "+novoproduto.getNome()+" incluido com sucesso");
+		ad.setMessage("Produto "+nomeEt.getText().toString()+" incluido com sucesso");
 		ad.show();
 		
 	}
