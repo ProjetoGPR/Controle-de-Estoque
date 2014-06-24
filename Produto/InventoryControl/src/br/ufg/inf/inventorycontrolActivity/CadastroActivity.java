@@ -8,8 +8,12 @@ import br.ufg.inf.inventorycontrolModel.*;
 
 import com.example.inventorycontrol.R;
 
+
+
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,6 +27,8 @@ public class CadastroActivity extends Activity {
 	private Spinner unidadeDeMedida;
 	private ArrayAdapter<UnidadeDeMedida> mAdapater;
 	private List <UnidadeDeMedida> mItens;
+	ControleProdutos controleCCA = new ControleProdutos();
+	private Intent it;
 	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -33,6 +39,10 @@ public class CadastroActivity extends Activity {
 		unidadeDeMedida= (Spinner) findViewById(R.id.spUnidadeDeMeida);
 		mAdapater.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
 		unidadeDeMedida.setAdapter(mAdapater);
+		
+		ActionBar ab = getActionBar();
+		ab.setDisplayHomeAsUpEnabled(true);
+		
 	}
 	
 	public void populandoListaDeUnidadeDeMedidas(){
@@ -54,7 +64,6 @@ public class CadastroActivity extends Activity {
 		EditText fabricanteEt=(EditText) findViewById(R.id.etFabricante);
 		EditText quantidadeEt= (EditText) findViewById(R.id.etQuantidade);
 	
-		ControleProdutos controleCCA = new ControleProdutos();	
 		controleCCA.cadastraProduto(nomeEt.getText().toString(), fabricanteEt.getText().toString(),
 				unidadeDeMedida.getSelectedItem().toString(), Integer.parseInt(quantidadeEt.getText().toString()));
 		
@@ -62,6 +71,21 @@ public class CadastroActivity extends Activity {
 		ad.setTitle("Cadastro de Produto");
 		ad.setMessage("Produto "+nomeEt.getText().toString()+" incluido com sucesso");
 		ad.show();
+		
+		limparCampos();
+		
+		
+	}
+	
+	public void limparCampos(){
+		EditText nomeEt=(EditText) findViewById(R.id.etNome);
+		EditText fabricanteEt=(EditText) findViewById(R.id.etFabricante);
+		EditText quantidadeEt= (EditText) findViewById(R.id.etQuantidade);
+		
+		nomeEt.setText("");
+		fabricanteEt.setText("");
+		quantidadeEt.setText("");
+		unidadeDeMedida.setSelection(0);
 		
 	}
 
@@ -79,7 +103,10 @@ public class CadastroActivity extends Activity {
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
-		if (id == R.id.action_settings) {
+		if (id == android.R.id.home) {
+			it = new Intent();
+			it.setClass(this, ListarActivity.class);
+			startActivity(it);	
 			return true;
 		}
 		return super.onOptionsItemSelected(item);

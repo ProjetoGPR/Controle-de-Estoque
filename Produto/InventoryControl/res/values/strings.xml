@@ -13,7 +13,9 @@
     <string name="incluir">INCLUIR</string>
 
    
-    <!-- activity listar -->
-
+    <!-- activity menu listar -->
+     <string name="addProduto">Add Produto</string>
+     <string name="searchProduto">Search Produto</string>
+     <string name="produto">Produtos</string>
  
 </resources>

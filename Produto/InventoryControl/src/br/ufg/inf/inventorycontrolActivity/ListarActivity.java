@@ -8,6 +8,7 @@ import br.ufg.inf.inventorycontrolModel.Produto;
 import com.example.inventorycontrol.R;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,26 +16,37 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class ListarActivity extends Activity{
-	@Override
+	private Intent it;
+	
+	private static ArrayList<String> populandoListView (ArrayList<Produto> produtos){
+		ArrayList<String> nomeProdutoCadastro = new ArrayList<String>();
+		
+		for(int i=0; i<produtos.size(); i++){
+			nomeProdutoCadastro.add(produtos.get(i).getNome()+" "+produtos.get(i).getFabricante()+" - "
+		+produtos.get(i).getQuantidade()+" "+produtos.get(i).getUnidadeDeMedida());
+		}
+		
+		return nomeProdutoCadastro;
+	}
+	
+	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_listar);
-		/*
-		 * PEnsar em uma maneira de listar apenas o atributo nome do produto
-		 * pois não tem como listar o prosuto em si.
-		  */
-		ArrayList<Produto> produtosCadastrados= ControleProdutos.produtosCadastrados;
-		ArrayAdapter<Produto> adapter = new ArrayAdapter<Produto>(this,android.R.layout.simple_expandable_list_item_1,produtosCadastrados);
+		
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_expandable_list_item_1,
+				populandoListView(ControleProdutos.produtosCadastrados));
 		ListView lv = (ListView) findViewById(R.id.lListView);
 		lv.setAdapter(adapter);
 		 
+		
 	}
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.cadastro, menu);
+		getMenuInflater().inflate(R.menu.listar, menu);
 		return true;
 	}
 
@@ -44,9 +56,13 @@ public class ListarActivity extends Activity{
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
-		if (id == R.id.action_settings) {
+		if (id == R.id.add) {
+			it=new Intent();
+			it.setClass(this, CadastroActivity.class);
+			startActivity(it);
 			return true;
 		}
+	
 		return super.onOptionsItemSelected(item);
 	}
 }
