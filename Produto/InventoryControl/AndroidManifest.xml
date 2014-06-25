@@ -15,23 +15,25 @@
         
         <activity
             android:name="br.ufg.inf.inventorycontrolActivity.CadastroActivity"
-            android:label="Cadastro de Produto"
-            
-             >
+            android:label="Cadastro de Produto" >
             <intent-filter>
-             
             </intent-filter>
         </activity>
-      
+        
         <activity
             android:name="br.ufg.inf.inventorycontrolActivity.ListarActivity"
             android:label="@string/produto" >
             <intent-filter>
-             <action android:name="android.intent.action.MAIN" />
-             <category android:name="android.intent.category.LAUNCHER" />   
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-          
+        
+        <activity
+            android:name="br.ufg.inf.inventorycontrolActivity.ConsultaActivity"
+            android:label="@string/title_activity_consulta" >
+        </activity>
     </application>
 
 </manifest>

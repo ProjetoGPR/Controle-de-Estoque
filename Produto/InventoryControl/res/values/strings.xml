@@ -12,10 +12,15 @@
     <string name="quantidade">QUANTIDADE</string>
     <string name="incluir">INCLUIR</string>
 
-   
     <!-- activity menu listar -->
-     <string name="addProduto">Add Produto</string>
-     <string name="searchProduto">Search Produto</string>
-     <string name="produto">Produtos</string>
- 
+    <string name="addProduto">Add Produto</string>
+    <string name="searchProduto">Search Produto</string>
+    <string name="produto">Produtos</string>
+    <string name="title_activity_consulta">ConsultaActivity</string>
+    <string name="hello_world">Hello world!</string>
+    
+    <!-- activity consulta detalhada -->
+    <string name="consultaDetalhada">CONSULTA DETALHADA</string>
+     <string name="remover">REMOVER</string>
+
 </resources>

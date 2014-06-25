@@ -67,6 +67,7 @@ public class CadastroActivity extends Activity {
 		controleCCA.cadastraProduto(nomeEt.getText().toString(), fabricanteEt.getText().toString(),
 				unidadeDeMedida.getSelectedItem().toString(), Integer.parseInt(quantidadeEt.getText().toString()));
 		
+		
 		AlertDialog ad = new AlertDialog.Builder(this).create();
 		ad.setTitle("Cadastro de Produto");
 		ad.setMessage("Produto "+nomeEt.getText().toString()+" incluido com sucesso");

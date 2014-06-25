@@ -12,6 +12,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -38,10 +41,27 @@ public class ListarActivity extends Activity{
 				populandoListView(ControleProdutos.produtosCadastrados));
 		ListView lv = (ListView) findViewById(R.id.lListView);
 		lv.setAdapter(adapter);
-		 
+		lv.setOnItemClickListener(chamarAtividade());
 		
 	}
 	
+	
+	
+	private OnItemClickListener chamarAtividade() {
+		      return (new OnItemClickListener() {
+		    	
+
+				@Override
+				public void onItemClick(AdapterView<?> parent, View view,
+						int position, long id) {
+				
+					it = new Intent(getBaseContext(), ConsultaActivity.class);
+					startActivity(it);
+				}
+			});
+	}
+
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 
