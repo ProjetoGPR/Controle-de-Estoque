@@ -20,6 +20,7 @@ import android.widget.ListView;
 
 public class ListarActivity extends Activity{
 	private Intent it;
+	public static int posicaoSelecionadoDoArray;
 	
 	private static ArrayList<String> populandoListView (ArrayList<Produto> produtos){
 		ArrayList<String> nomeProdutoCadastro = new ArrayList<String>();
@@ -49,12 +50,12 @@ public class ListarActivity extends Activity{
 	
 	private OnItemClickListener chamarAtividade() {
 		      return (new OnItemClickListener() {
-		    	
-
-				@Override
+		@Override
 				public void onItemClick(AdapterView<?> parent, View view,
 						int position, long id) {
-				
+			
+		            posicaoSelecionadoDoArray=position;
+		            
 					it = new Intent(getBaseContext(), ConsultaActivity.class);
 					startActivity(it);
 				}

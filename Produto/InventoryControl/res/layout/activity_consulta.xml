@@ -28,11 +28,21 @@
          android:layout_marginBottom="30dp"   
             />
         
+        
+        
         <TextView 
          android:id="@+id/tvConsultaDetalhadaNomeProduto"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:text="@string/nome"   
+            />
+        
+        <TextView 
+         android:id="@+id/tvConsultaDetalhadaNomeProdutoSelecionado"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="" 
+         android:layout_marginBottom="15dp" 
             />
         
         <TextView 
@@ -43,10 +53,26 @@
             />
         
         <TextView 
+         android:id="@+id/tvConsultaDetalhadaFabricanteProdutoSelecionado"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="" 
+         android:layout_marginBottom="15dp" 
+            />
+        
+        <TextView 
          android:id="@+id/tvConsultaDetalhadaUnidadeDeMedida"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:text="@string/unidadeDeMedida"   
+            />
+        
+         <TextView 
+         android:id="@+id/tvConsultaDetalhadaUnidadeDeMedidaSelecionado"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="" 
+         android:layout_marginBottom="15dp" 
             />
         
         <TextView 
@@ -54,6 +80,14 @@
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:text="@string/quantidade"   
+            />
+        
+         <TextView 
+         android:id="@+id/tvConsultaDetalhadaQuantidadeProdutoSelecionado"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="" 
+         android:layout_marginBottom="15dp" 
             />
         
         <Button 
