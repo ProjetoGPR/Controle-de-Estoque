@@ -4,20 +4,14 @@ import br.ufg.inf.inventorycontrolControle.ControleProdutos;
 
 import com.example.inventorycontrol.R;
 
-
-
-
-
-
-
-
-
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 public class ConsultaActivity extends Activity {
@@ -43,9 +37,18 @@ TextView nomeProdutoSelecionado, fabrincanteProdutoSelecionado, unidadeProdutoSe
 		ab.setDisplayHomeAsUpEnabled(true);
 	}
 	
-   @SuppressWarnings("unused")
-   private void removerProduto(){
+
+   public void removerProduto(View view){
 	   
+	   ControleProdutos.produtosCadastrados.remove(ListarActivity.posicaoSelecionadoDoArray);
+	   AlertDialog dialog = new AlertDialog.Builder(this).create();
+	   dialog.setTitle("Produto Removido");
+	   dialog.setMessage(""+nomeProdutoSelecionado.getText().toString());
+	   dialog.show();
+	   
+	   it = new Intent();
+	   it.setClass(this, ListarActivity.class);
+	   startActivity(it);	
    }
 
 	@Override

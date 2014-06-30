@@ -5,8 +5,9 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="16"
-        android:targetSdkVersion="16" />
+        android:minSdkVersion="15"
+        android:targetSdkVersion="16" 
+        android:maxSdkVersion="19"/>
 
     <application
         android:allowBackup="true"
@@ -22,7 +23,7 @@
         
         <activity
             android:name="br.ufg.inf.inventorycontrolActivity.ListarActivity"
-            android:label="@string/produto" >
+            android:label="Lista de Produtos" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,7 +33,7 @@
         
         <activity
             android:name="br.ufg.inf.inventorycontrolActivity.ConsultaActivity"
-            android:label="@string/title_activity_consulta" >
+            android:label="Consulta Detalhada" >
         </activity>
     </application>
 
