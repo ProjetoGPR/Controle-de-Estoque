@@ -18,6 +18,12 @@ public static ArrayList<Produto> produtosCadastrados=new ArrayList<Produto>();
 		
 	}
 	
-	
+	public void alterarProduto(int posicao,String nome, String fabricante, String unidadeDeMedida, int quantidade){
+		produtosCadastrados.get(posicao).setNome(nome);
+		produtosCadastrados.get(posicao).setFabricante(fabricante);
+		produtosCadastrados.get(posicao).setUnidadeDeMedida(unidadeDeMedida);
+		produtosCadastrados.get(posicao).setQuantidade(quantidade);;
+		
+	}
 
 }

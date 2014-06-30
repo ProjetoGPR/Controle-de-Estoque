@@ -9,7 +9,6 @@ import com.example.inventorycontrol.R;
 
 import android.app.ActionBar;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -23,6 +22,7 @@ import android.widget.Spinner;
 public class EditarActivity extends Activity {
 EditText nomeProdutoAlterado, fabricanteAlterado, quantidadeAlterado;
 Spinner unidadeDeMedidaAlterado;
+ControleProdutos controleProdutos;
 private Intent it;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -58,10 +58,20 @@ private Intent it;
 	
 	
 	public void editar(View view){
-		AlertDialog dialog = new AlertDialog.Builder(this).create();
-		dialog.setTitle("Atenção");
-		dialog.setMessage("Botão em Implementação");
+		controleProdutos = new ControleProdutos();
+		controleProdutos.alterarProduto(ListarActivity.posicaoSelecionadoDoArray, 
+				nomeProdutoAlterado.getText().toString(), fabricanteAlterado.getText().toString(), 
+				unidadeDeMedidaAlterado.getSelectedItem().toString(), Integer.parseInt(quantidadeAlterado.getText().toString()));
+		
+	/*	AlertDialog dialog = new AlertDialog.Builder(this).create();
+		dialog.setTitle("Alterando Produto");
+		dialog.setMessage("Produto "+nomeProdutoAlterado.getText().toString()+" alterado com sucesso");
 		dialog.show();
+		
+		*/
+		it=new Intent();
+		it.setClass(this, ConsultaActivity.class);
+		startActivity(it);
 	}
 	
 
