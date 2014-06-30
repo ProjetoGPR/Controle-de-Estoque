@@ -3,9 +3,11 @@
     tools:context="com.example.inventorycontrol.ConsultaActivity" >
 
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/acao_editar"
         android:orderInCategory="100"
-        android:showAsAction="never"
-        android:title="@string/action_settings"/>
+        android:showAsAction="always"
+        android:icon="@drawable/ic_action_edit"
+        android:title="@string/alterar"  
+  />
 
 </menu>

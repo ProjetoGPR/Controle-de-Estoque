@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff0f0"
+    android:padding="15dp"
     tools:context="br.ufg.inf.inventorycontrolActivity.ConsultaActivity"
     tools:ignore="MergeRootFrame"
     > 
@@ -92,7 +93,7 @@
         
         <Button
             android:id="@+id/btRemover"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="removerProduto"
             android:text="@string/remover" />

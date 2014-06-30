@@ -67,9 +67,14 @@ TextView nomeProdutoSelecionado, fabrincanteProdutoSelecionado, unidadeProdutoSe
 		// as you specify a parent activity in AndroidManifest.xml.
 		
 		int id = item.getItemId();
+		it = new Intent();
 		if (id == android.R.id.home) {
-			it = new Intent();
 			it.setClass(this, ListarActivity.class);
+			startActivity(it);	
+			return true;
+		}
+		else if(id == R.id.acao_editar){
+			it.setClass(this, EditarActivity.class);
 			startActivity(it);	
 			return true;
 		}

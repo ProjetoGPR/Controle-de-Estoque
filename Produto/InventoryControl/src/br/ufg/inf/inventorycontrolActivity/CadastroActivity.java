@@ -26,7 +26,7 @@ import android.widget.Spinner;
 public class CadastroActivity extends Activity {
 	private Spinner unidadeDeMedida;
 	private ArrayAdapter<UnidadeDeMedida> mAdapater;
-	private List <UnidadeDeMedida> mItens;
+	public static List <UnidadeDeMedida> mItens;
 	ControleProdutos controleCCA = new ControleProdutos();
 	private Intent it;
 	
@@ -45,16 +45,16 @@ public class CadastroActivity extends Activity {
 		
 	}
 	
-	public void populandoListaDeUnidadeDeMedidas(){
-		UnidadeDeMedida kg = new UnidadeDeMedida(1, "KG");
+	public static void populandoListaDeUnidadeDeMedidas(){
+		UnidadeDeMedida kg = new UnidadeDeMedida(0, "KG");
 		mItens.add(kg);
-		UnidadeDeMedida g = new UnidadeDeMedida(2, "g");
+		UnidadeDeMedida g = new UnidadeDeMedida(1, "g");
 		mItens.add(g);
-		UnidadeDeMedida l = new UnidadeDeMedida(3, "L");
+		UnidadeDeMedida l = new UnidadeDeMedida(2, "L");
 		mItens.add(l);
-		UnidadeDeMedida ml = new UnidadeDeMedida(4, "mL");
+		UnidadeDeMedida ml = new UnidadeDeMedida(3, "mL");
 		mItens.add(ml);
-		UnidadeDeMedida va = new UnidadeDeMedida(5, "Valor Absoluto");
+		UnidadeDeMedida va = new UnidadeDeMedida(4, "Valor Absoluto");
 		mItens.add(va);
 		
 	}
